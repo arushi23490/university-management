@@ -92,9 +92,10 @@ if(data != string::npos){
 cout<<"\t"<<line<<endl;
 found = true;
 }
-if(!found){
-cout<<"\tStudent Not Found!"<<endl;
+
 }
+	if(!found){
+cout<<"\tStudent Not Found!"<<endl;
 }
 in.close();
 
