@@ -66,7 +66,7 @@ public:
             cout << "\tError: File Can't Open!" << endl;
             return;
         }
-
+rollNo+=" :";
         string line;
         bool found = false;
         while (getline(in, line)) {
@@ -101,7 +101,7 @@ public:
             cout << "\tError: File Can't Open!" << endl;
             return;
         }
-
+rollNo+=" :";
         string line;
         bool found = false;
         while (getline(in, line)) {
