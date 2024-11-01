@@ -91,6 +91,7 @@ if(data != string::npos){
 
 cout<<"\t"<<line<<endl;
 found = true;
+	break;
 }
 
 }
@@ -106,17 +107,18 @@ string rollNo;
 cout<<"\tEnter RollNo Of Student: ";
 cin>>rollNo;
 
-ifstream infile("D:/university.txt");
-ofstream outfile("D:/university temp.txt");
-if(!infile || !outfile){
+ofstream outfile("D:/university.txt");
+
+if( !outfile){
 	cout<<"\tError: File Can't Opne!"<<endl;
 }
 
 string line;
 bool found = false;
-while(getline(infile, line)){
+while(getline(outfile, line)){
 int pos = line.find(rollNo);
 if(pos != string::npos){
+	found = true;
 string address;
 cout<<"\tEnter New Address: ";
 cin>>address;
@@ -124,17 +126,17 @@ student.setAddress(address);
 
 int newPos = line.find_last_of(':');
 line.replace(newPos + 2, string::npos, student.getAddress());
+	break;
 }
-outfile<<line<<endl;
-found = true;
+
+
 }
 if(!found){
 cout<<"\tStudent Not Found!"<<endl;
 }
 outfile.close();
-infile.close();
-remove("D:/university.txt");
-rename("D:/university temp.txt", "D:/university.txt");
+
+
 cout<<"\tData Updated!"<<endl;
 }
 
